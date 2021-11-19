@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,41 +13,57 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BoostMusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7Z-53-HSi">
-                                <rect key="frame" x="20" y="107" width="374" height="265"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="button_play"/>
-                                <state key="selected" image="button_pause"/>
-                            </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eIq-OI-5wf">
-                                <rect key="frame" x="18" y="433" width="378" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eIq-OI-5wf">
+                                <rect key="frame" x="14" y="347" width="362" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemOrangeColor"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="uR6-jO-cOd"/>
+                                </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eu-P1-JO3">
-                                <rect key="frame" x="166" y="380" width="82" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eu-P1-JO3">
+                                <rect key="frame" x="163.33333333333334" y="314" width="63.666666666666657" height="17"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTI-VY-Dg3">
+                                <rect key="frame" x="95" y="94" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Qsb-Hi-KbC"/>
+                                    <constraint firstAttribute="height" constant="200" id="gss-Fg-xcR"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="button_play"/>
+                                <state key="selected" image="button_pause"/>
+                                <connections>
+                                    <action selector="touchUpPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gup-cc-4cM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eIq-OI-5wf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8wj-8s-MSx"/>
+                            <constraint firstItem="6Eu-P1-JO3" firstAttribute="top" secondItem="OTI-VY-Dg3" secondAttribute="bottom" constant="20" id="Laa-6N-7t3"/>
+                            <constraint firstItem="OTI-VY-Dg3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="T3U-Ae-xmG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eIq-OI-5wf" secondAttribute="trailing" constant="16" id="WAI-ej-HbZ"/>
+                            <constraint firstItem="6Eu-P1-JO3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WOP-jw-eej"/>
+                            <constraint firstItem="OTI-VY-Dg3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gPR-Ki-TZb"/>
+                            <constraint firstItem="eIq-OI-5wf" firstAttribute="top" secondItem="6Eu-P1-JO3" secondAttribute="bottom" constant="16" id="jWD-v9-tqE"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="playPuaseButton" destination="e7Z-53-HSi" id="5rV-am-3Mp"/>
-                        <outlet property="progressSlider" destination="eIq-OI-5wf" id="pkm-JF-KFW"/>
-                        <outlet property="timeLabel" destination="6Eu-P1-JO3" id="7AY-yw-Bpq"/>
+                        <outlet property="playPuaseButton" destination="OTI-VY-Dg3" id="jnp-XS-gre"/>
+                        <outlet property="progressSlider" destination="eIq-OI-5wf" id="Xqr-2Z-M6d"/>
+                        <outlet property="timeLabel" destination="6Eu-P1-JO3" id="73k-VF-Ysu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
+            <point key="canvasLocation" x="18.46153846153846" y="83.175355450236964"/>
         </scene>
     </scenes>
     <resources>
