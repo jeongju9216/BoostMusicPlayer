@@ -35,7 +35,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             print("음원 파일 애셋을 가져올 수 없습니다.")
             return
         }
-        
+
         do {
             try self.player = AVAudioPlayer(data: soundAssets.data)
             self.player.delegate = self
@@ -86,7 +86,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     func addPlayPauseButton() {
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+
         self.view.addSubview(button)
         
         button.setImage(UIImage(named: "button_play"), for: UIControl.State.normal)
@@ -96,21 +96,21 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         
         let centerX: NSLayoutConstraint
         centerX = button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        
+
         let centerY: NSLayoutConstraint
         centerY = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 0.8, constant: 0)
-        
+
         let width: NSLayoutConstraint
         width = button.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.3)
-        
+
         let ratio: NSLayoutConstraint
         ratio = button.heightAnchor.constraint(equalTo: button.widthAnchor, multiplier: 1)
-        
+
         centerX.isActive = true
         centerY.isActive = true
         width.isActive = true
         ratio.isActive = true
-        
+
         self.playPuaseButton = button
     }
     
